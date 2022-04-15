@@ -1,2 +1,2 @@
-# projekt STI 2022
-martin kracman
+# Projekt STI 2022
+Martin Kracman
