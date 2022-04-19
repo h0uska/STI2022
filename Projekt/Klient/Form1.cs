@@ -24,6 +24,61 @@ namespace Klient
 
         }
 
+        private int getQuestionNumber(string question)
+        {
+            question = question.ToLower();
+
+            bool foundWordWhat = false, foundWordTime = false, foundWordName = false,
+                foundWordCurrent = false, foundWordEUR = false, foundWordHistory = false;
+
+            string[] words = question.Split(' ');
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                Console.WriteLine(words[i]);
+
+                if (words[i].Equals("what"))
+                {
+                    foundWordWhat = true;
+                    if (foundWordTime) { return 1; }
+                    if (foundWordName) { return 2; }
+                }
+
+                else if (words[i].Equals("time"))
+                {
+                    foundWordTime = true;
+                    if (foundWordWhat) { return 1; }
+                }
+
+                else if (words[i].Equals("name"))
+                {
+                    foundWordName = true;
+                    if (foundWordWhat) { return 2; }
+                }
+
+                else if (words[i].Equals("current"))
+                {
+                    foundWordCurrent = true;
+                    if (foundWordEUR) { return 3; }
+                }
+
+                else if (words[i].Equals("eur"))
+                {
+                    foundWordEUR = true;
+                    if (foundWordCurrent) { return 3; }
+                    if (foundWordHistory) { return 4; }
+                }
+
+                else if (words[i].Equals("history"))
+                {
+                    foundWordHistory = true;
+                    if (foundWordEUR) { return 4; }
+                }
+            }
+
+            return 5;
+        }
+
         private String getHtmlFromServer(string serverAdress)
         {
             try
