@@ -19,10 +19,28 @@ namespace Klient
             InitializeComponent();
         }
 
+        private string htmlTextToShow;
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            String responseFromServer = getHtmlFromServer("http://stiserver2.9e.cz/");
+            putHtmlInBox(responseFromServer);
+
+            if (webBrowser1.Document.Body != null)
+            {
+                webBrowser1.Document.Body.ScrollIntoView(false);// skoci na konec listu pockej az se to tam vykresli
+            }
+
+            int numberOfQuestion = getQuestionNumber(textBox2.Text);
+
+            textBox2.Text = "";
+        }
+
 
         private int getQuestionNumber(string question)
         {
@@ -39,44 +57,49 @@ namespace Klient
 
                 if (words[i].Equals("what"))
                 {
-                    foundWordWhat = true;
+                    foundWordWhat = true; 
                     if (foundWordTime) { return 1; }
-                    if (foundWordName) { return 2; }
+                    if (foundWordName) { return 2; } 
                 }
 
-                else if (words[i].Equals("time"))
-                {
+                else if (words[i].Equals("time")) 
+                { 
                     foundWordTime = true;
-                    if (foundWordWhat) { return 1; }
+                    if (foundWordWhat){ return 1; }
                 }
 
-                else if (words[i].Equals("name"))
-                {
+                else if (words[i].Equals("name")) 
+                { 
                     foundWordName = true;
                     if (foundWordWhat) { return 2; }
                 }
 
-                else if (words[i].Equals("current"))
-                {
+                else if (words[i].Equals("current")) 
+                { 
                     foundWordCurrent = true;
                     if (foundWordEUR) { return 3; }
                 }
 
-                else if (words[i].Equals("eur"))
-                {
+                else if (words[i].Equals("eur")) 
+                { 
                     foundWordEUR = true;
                     if (foundWordCurrent) { return 3; }
                     if (foundWordHistory) { return 4; }
                 }
 
-                else if (words[i].Equals("history"))
-                {
+                else if (words[i].Equals("history")) 
+                { 
                     foundWordHistory = true;
                     if (foundWordEUR) { return 4; }
                 }
             }
 
             return 5;
+        }
+
+        private void putHtmlInBox(string htmlInStringToShow)
+        {
+            webBrowser1.DocumentText = htmlInStringToShow;
         }
 
         private String getHtmlFromServer(string serverAdress)
@@ -117,5 +140,7 @@ namespace Klient
                 return ex.Message;
             }
         }
+
+        
     }
 }
