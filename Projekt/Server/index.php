@@ -5,7 +5,8 @@
         <title></title>
     </head>
     <body>
+        <?php
+            include("questionRouter.php");
+        ?>
     </body>
-    <script>
-    </script>
 </html>
