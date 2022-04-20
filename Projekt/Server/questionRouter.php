@@ -1,0 +1,18 @@
+<?php
+    if(isset($_GET['question1']))
+    {
+        include("answer1.php");
+    }
+    if(isset($_GET['question2']))
+    {
+        include("answer2.php");
+    }
+    if(isset($_GET['question3']))
+    {
+        include("answer3.php");
+    }
+    if(isset($_GET['question4']))
+    {
+        include("answer4.php");
+    }
+?>
