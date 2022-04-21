@@ -41,6 +41,27 @@ namespace Klient
             textBox2.Text = "";
         }
 
+	private string getQuestionUrl(int numberOfQuestion)
+        {
+            if (numberOfQuestion==1)
+            {
+                return "http://stiserver2.9e.cz/index.php?question1";
+            }
+            else if (numberOfQuestion == 2)
+            {
+                return "http://stiserver2.9e.cz/index.php?question2";
+            }
+            else if (numberOfQuestion == 3)
+            {
+                return "http://stiserver2.9e.cz/index.php?question3";
+            }
+            else if (numberOfQuestion == 4)
+            {
+                return "http://stiserver2.9e.cz/index.php?question4";
+            }
+            return "wrong number";
+        }
+
 
         private int getQuestionNumber(string question)
         {
