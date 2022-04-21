@@ -41,6 +41,26 @@ namespace Klient
             textBox2.Text = "";
         }
 
+        private string createHtmlToDisplay()
+        {
+            string htmlToDisplay = "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><title></title></head><body>";
+            for (int i = 0; i < messagesHistory.Count; i++)
+            {
+                htmlToDisplay += "<br>" + messagesHistory[i];
+            }
+            htmlToDisplay += "</body></html>";
+            return htmlToDisplay;
+        }
+
+        private string getStringBeetweenStrings(string stringToParse, string firstString, string lastString)
+        {
+            string finalString;
+            int positionFirst = stringToParse.IndexOf(firstString) + firstString.Length;
+            int positionLast = stringToParse.IndexOf(lastString);
+            finalString = stringToParse.Substring(positionFirst, positionLast - positionFirst);
+            return finalString;
+        }
+
 	private string getQuestionUrl(int numberOfQuestion)
         {
             if (numberOfQuestion==1)
