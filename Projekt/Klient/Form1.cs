@@ -19,7 +19,13 @@ namespace Klient
             InitializeComponent();
         }
 
-        private string htmlTextToShow;
+        private const string helpMessage = "your last question was not decoded" +
+            "<br>HELP:" +
+            "<br>1) if you want to ask what is the time, than use words 'what' and 'time'" +
+            "<br>2) if you want to ask what is server name, than use words 'what' and 'name'" +
+            "<br>3) if you want to ask what is the current euro exchange rate, than use words 'current' and 'EUR'" +
+            "<br>4) if you want to ask what is the history of euro exchange rate, than use words 'history' and 'EUR'";
+        private List<string> messagesHistory = new List<string>();
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -28,17 +34,37 @@ namespace Klient
 
         private void button1_Click(object sender, EventArgs e)
         {
-            String responseFromServer = getHtmlFromServer("http://stiserver2.9e.cz/");
-            putHtmlInBox(responseFromServer);
+            int numberOfQuestion = getQuestionNumber(textBox2.Text);
+            //messagesHistory.Add("question:");
+            messagesHistory.Add("question: " + textBox2.Text);
+            textBox2.Text = "";
 
+            if (numberOfQuestion!=5)
+            {
+                try
+                {
+                    string url = getQuestionUrl(numberOfQuestion);
+                    String responseFromServer = getHtmlFromServer(url);
+                    string bodyHtml = getStringBeetweenStrings(responseFromServer, "<body>", "</body>");
+                    messagesHistory.Add("answer: " + bodyHtml);
+                }
+                catch { }
+            }
+            else
+            {
+                messagesHistory.Add(helpMessage);
+            }
+            string htmlToDisplay = createHtmlToDisplay();
+            putHtmlInBox(htmlToDisplay);
+            //moveDisplayOfHtml();
+        }
+
+        private void moveDisplayOfHtml()
+        {
             if (webBrowser1.Document.Body != null)
             {
                 webBrowser1.Document.Body.ScrollIntoView(false);// skoci na konec listu pockej az se to tam vykresli
             }
-
-            int numberOfQuestion = getQuestionNumber(textBox2.Text);
-
-            textBox2.Text = "";
         }
 
         private string createHtmlToDisplay()
@@ -61,7 +87,7 @@ namespace Klient
             return finalString;
         }
 
-	private string getQuestionUrl(int numberOfQuestion)
+        private string getQuestionUrl(int numberOfQuestion)
         {
             if (numberOfQuestion==1)
             {
@@ -82,7 +108,6 @@ namespace Klient
             return "wrong number";
         }
 
-
         private int getQuestionNumber(string question)
         {
             question = question.ToLower();
@@ -90,11 +115,12 @@ namespace Klient
             bool foundWordWhat = false, foundWordTime = false, foundWordName = false,
                 foundWordCurrent = false, foundWordEUR = false, foundWordHistory = false;
 
-            string[] words = question.Split(' ');
+            char[] separators = {' ', '.', '?', '!', ',', ':' };
+
+            string[] words = question.Split(separators);
 
             for (int i = 0; i < words.Length; i++)
             {
-                Console.WriteLine(words[i]);
 
                 if (words[i].Equals("what"))
                 {
@@ -138,9 +164,10 @@ namespace Klient
             return 5;
         }
 
-        private void putHtmlInBox(string htmlInStringToShow)
+        private bool putHtmlInBox(string htmlInStringToShow)
         {
             webBrowser1.DocumentText = htmlInStringToShow;
+            return false;
         }
 
         private String getHtmlFromServer(string serverAdress)
