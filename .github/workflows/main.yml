@@ -31,7 +31,7 @@ jobs:
           msbuild.exe Klient/Klient.sln /p:platform="Any CPU" /p:configuration="Release"
         
       - name: Run Tests
-        run: vstest.console.exe .\UnitTest\bin\Release\UnitTest.dll
+        run: vstest.console.exe Klient\UnitTest\bin\Release\UnitTest.dll
 
 
 
