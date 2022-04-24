@@ -1,6 +1,6 @@
 # https://www.youtube.com/watch?v=g8tdrB3kbDU
 name: CI/CD
-#on:
+on:
   push:
     branches: [ main ]
   #pull_request:
@@ -11,17 +11,24 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
+    
       - uses: actions/checkout@v3 # kopíruje a checkuje kód
+      
       - name: Add msbuild to PATH
         uses: microsoft/setup-msbuild@v1.1
+        
       #- name: Build app for release
-      #  run: msbuild Klient - unit testy/Klient.csproj -t:rebuild -verbosity:diag -property:Configuration=Release
-      #- name: Setup NuGet #jméno volitelné
-      #  uses: NuGet/setup-nuget@v1.0.6
-      #- name: Restore NuGet packages
-      #  run: nuget restore Klient - unit testy/Klient.sln
+      #  run: msbuild Klient/Klient.csproj -t:rebuild -verbosity:diag -property:Configuration=Release
+      
+      - name: Setup NuGet #jméno volitelné
+        uses: NuGet/setup-nuget@v1.0.6
+        
+      - name: Restore NuGet packages
+        run: nuget restore Klient/Klient.sln
+        
       - name: Build the solution
         run: msbuild Klient/Klient.sln
+        
       - name: Execute unit tests
         run: dotnet test
         
