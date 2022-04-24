@@ -1,0 +1,22 @@
+C:\Users\Martin\Desktop\STI2050\Klient\Klient\bin\Debug\Klient.exe.config
+C:\Users\Martin\Desktop\STI2050\Klient\Klient\bin\Debug\Klient.exe
+C:\Users\Martin\Desktop\STI2050\Klient\Klient\bin\Debug\Klient.pdb
+C:\Users\Martin\Desktop\STI2050\Klient\Klient\obj\Debug\Klient.csproj.AssemblyReference.cache
+C:\Users\Martin\Desktop\STI2050\Klient\Klient\obj\Debug\Klient.csproj.SuggestedBindingRedirects.cache
+C:\Users\Martin\Desktop\STI2050\Klient\Klient\obj\Debug\Klient.Form1.resources
+C:\Users\Martin\Desktop\STI2050\Klient\Klient\obj\Debug\Klient.Properties.Resources.resources
+C:\Users\Martin\Desktop\STI2050\Klient\Klient\obj\Debug\Klient.csproj.GenerateResource.cache
+C:\Users\Martin\Desktop\STI2050\Klient\Klient\obj\Debug\Klient.csproj.CoreCompileInputs.cache
+C:\Users\Martin\Desktop\STI2050\Klient\Klient\obj\Debug\Klient.exe
+C:\Users\Martin\Desktop\STI2050\Klient\Klient\obj\Debug\Klient.pdb
+C:\Users\Martin\STI 2022\Klient\Klient\bin\Debug\Klient.exe.config
+C:\Users\Martin\STI 2022\Klient\Klient\bin\Debug\Klient.exe
+C:\Users\Martin\STI 2022\Klient\Klient\bin\Debug\Klient.pdb
+C:\Users\Martin\STI 2022\Klient\Klient\obj\Debug\Klient.csproj.AssemblyReference.cache
+C:\Users\Martin\STI 2022\Klient\Klient\obj\Debug\Klient.csproj.SuggestedBindingRedirects.cache
+C:\Users\Martin\STI 2022\Klient\Klient\obj\Debug\Klient.Form1.resources
+C:\Users\Martin\STI 2022\Klient\Klient\obj\Debug\Klient.Properties.Resources.resources
+C:\Users\Martin\STI 2022\Klient\Klient\obj\Debug\Klient.csproj.GenerateResource.cache
+C:\Users\Martin\STI 2022\Klient\Klient\obj\Debug\Klient.csproj.CoreCompileInputs.cache
+C:\Users\Martin\STI 2022\Klient\Klient\obj\Debug\Klient.exe
+C:\Users\Martin\STI 2022\Klient\Klient\obj\Debug\Klient.pdb

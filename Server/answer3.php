@@ -1,0 +1,9 @@
+<?php
+    include("downloadData.php");
+    include("parseDownloadedData.php");
+    include("findLastLineInFile.php");
+    include("appendInFile.php");
+    include("findLastLineInFile.php");
+    include("parseLineInFile.php.php");
+    include("putEchoOnPage.php");
+?>
