@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
 jobs:  
-  build:    
+  build-test:    
     runs-on: windows-latest
     
     steps:      
@@ -33,7 +33,3 @@ jobs:
       - name: Run Tests
         run: vstest.console.exe Klient\UnitTest\bin\Release\UnitTest.dll
 
-
-
-#Run vstest.console.exe .\tests\Sandbox.Tests\bin\Release\Sandbox.Tests.dll
-#The test source file "D:\a\STI2022\STI2022\.\tests\Sandbox.Tests\bin\Release\Sandbox.Tests.dll" provided was not found.
