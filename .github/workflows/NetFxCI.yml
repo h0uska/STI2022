@@ -22,11 +22,8 @@ jobs:
       #  run: nuget restore Klient - unit testy/Klient.sln
       - name: Build the solution
         run: msbuild Klient/Klient.sln
-  tests:
-    name: Unit Testing
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v2.1.0
-      - run: dotnet test      
+        
+      - name: Execute unit tests
+        run: dotnet test
         
         
