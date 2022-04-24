@@ -1,6 +1,6 @@
 # https://www.youtube.com/watch?v=g8tdrB3kbDU
 name: CI/CD
-on:
+#on:
   push:
     branches: [ main ]
   #pull_request:
