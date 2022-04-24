@@ -150,14 +150,5 @@ namespace UnitTest
             Converzation c = new Converzation();
             Assert.ThrowsException<UriFormatException>(() => c.getHtmlFromServer("w"));
         }
-        [TestMethod]
-        public void getHtmlFromServerTest2()
-        {
-            Converzation c = new Converzation();
-            Assert.AreEqual("<!DOCTYPE html><html>    <head>        <meta charset=\"utf-8\">        <title>" +
-                "</title>    </head>    <body>            </body></html>", c.getHtmlFromServer("http://stiserver2.9e.cz/index.php"));
-        }
-
-
     }
 }
