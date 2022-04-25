@@ -40,3 +40,7 @@ jobs:
           **/Server/**
           README.md
           historie_meny.txt
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          fileToExclude.txt
