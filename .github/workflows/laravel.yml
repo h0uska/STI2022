@@ -28,8 +28,10 @@ jobs:
     #    touch database/database.sqlite
     - name: Navigate to Workspace
       run: cd $GITHUB_WORKSPACE
+    #- name: Run Tests
+    #  run: vstest.console.exe Klient\UnitTest\bin\Release\UnitTest.dll
     - name: Execute tests (Unit and Feature tests) via PHPUnit
    #   env:
    #     DB_CONNECTION: sqlite
    #     DB_DATABASE: database/database.sqlite
-      run: vendor/bin/phpunit
+      run: Server/vendor/bin/phpunit
