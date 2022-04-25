@@ -28,13 +28,13 @@ class serverTest extends TestCase
     public function testGetLastLineInFile()
     {
         $testfun = new functions();
-        $this->assertEquals("22.04.2022;1;EUR;24,320",$testfun->getLastLineInFile("tests/test_file.txt"));
+        $this->assertEquals("22.04.2022;1;EUR;24,320",$testfun->getLastLineInFile("/home/runner/work/STI2022/STI2022/Server/tests/test_file.txt"));
     }
 
     public function testAppendDataInFile1()
     {
         $testfun = new functions();
-        $this->assertEquals(false,$testfun->appendDataInFile(array("n","a","b","c"), "n;a;b;c", "tests/test_file_2.txt"));
+        $this->assertEquals(false,$testfun->appendDataInFile(array("n","a","b","c"), "n;a;b;c", "/home/runner/work/STI2022/STI2022/Server/tests/test_file_2.txt"));
     }
 
     public function testAppendDataInFile2()
@@ -42,8 +42,8 @@ class serverTest extends TestCase
         date_default_timezone_set('Europe/Prague');
         $time = $date = date('m/d/Y h:i:s a', time());
         $testfun = new functions();
-        $this->assertEquals(true,$testfun->appendDataInFile(array($time,"a","b","c"), "nothing", "tests/test_file_2.txt"));
-        $this->assertEquals($time . ";a;b;c",$testfun->getLastLineInFile("tests/test_file_2.txt"));
+        $this->assertEquals(true,$testfun->appendDataInFile(array($time,"a","b","c"), "nothing", "/home/runner/work/STI2022/STI2022/Server/tests/test_file_2.txt"));
+        $this->assertEquals($time . ";a;b;c",$testfun->getLastLineInFile("/home/runner/work/STI2022/STI2022/Server/tests/test_file_2.txt"));
     }
 
     public function testParseLine()
@@ -55,7 +55,7 @@ class serverTest extends TestCase
     public function testCreateTable()
     {
         $testfun = new functions();
-        $this->assertEquals("20.04.2022;24,415;21.04.2022;24,380;22.04.2022;24,320;",$testfun->createTable("tests/test_file.txt"));
+        $this->assertEquals("20.04.2022;24,415;21.04.2022;24,380;22.04.2022;24,320;",$testfun->createTable("/home/runner/work/STI2022/STI2022/Server/tests/test_file.txt"));
     }
 }
 
