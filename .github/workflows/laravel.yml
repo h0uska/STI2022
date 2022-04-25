@@ -37,6 +37,8 @@ jobs:
       run: php Server/vendor/bin/phpunit  Server/serverTest.php
       
 ###############################################################################################
+    - name: 🔎 Check IP
+      run: curl https://api.ipify.org
 
     - name: 🚚 Get latest code
       uses: actions/checkout@v2
