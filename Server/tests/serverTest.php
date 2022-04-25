@@ -2,7 +2,8 @@
 //      php vendor/bin/phpunit tests/serverTest.php --colors
 
 use PHPUnit\Framework\TestCase;
-include 'functions.php';
+include '.Server/functions.php'
+// include 'functions.php';
 
 class serverTest extends TestCase
 {
