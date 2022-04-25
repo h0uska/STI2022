@@ -47,4 +47,5 @@ jobs:
         server: klokanek.endora.cz
         username: ${{ secrets.ftp_username }}
         password: ${{ secrets.ftp_password }}
+        port: 21
         #server-dir:
