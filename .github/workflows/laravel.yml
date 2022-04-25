@@ -34,4 +34,4 @@ jobs:
    #   env:
    #     DB_CONNECTION: sqlite
    #     DB_DATABASE: database/database.sqlite
-      run: php Server/vendor/bin/phpunit tests/serverTest.php
+      run: php Server/vendor/bin/phpunit  Server/tests/serverTest.php
